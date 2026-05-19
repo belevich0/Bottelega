@@ -138,7 +138,9 @@ def format_playlist(tracks: list[dict], title: str, source: str) -> str:
     return "\n".join(lines)
 
 # ─── Инициализация ───────────────────────────────────────────────────────────
-bot = Bot(token=BOT_TOKEN, parse_mode="HTML")
+bot = from aiogram.client.default import DefaultBotProperties
+bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
+
 dp  = Dispatcher(storage=MemoryStorage())
 ms  = MusicSources()
 
